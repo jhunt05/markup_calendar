@@ -31,11 +31,11 @@ body {
   @for $day-num from 1 to 32 {
     div:nth-child(#{$day-num})::after {
     content: "#{$day-num}";
-    display: block;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
+    // display: block;
+    // width: 100px;
+    // height: 100px;
+    // line-height: 100px;
+    // text-align: center;
   }
 }
 }
