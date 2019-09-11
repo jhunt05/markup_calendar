@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+    grid-gap: 1px;
+    padding-top: 10px;
+
+    div {
+        background: #eee;
+        border: 1px solid black;
+        transition: transform 0.5s, background 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    // div:first-child {
+    //     grid-column-start: 7;
+    // }
+
+    div:hover {
+        cursor: pointer;
+        background: pink;
+        transform: translate(0, -20px);
+    }
+
+    @for $day-num from 1 to 32 {
+            div:nth-child(#{$day-num})::after {
+            content: "#{$day-num}";
+            display: block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    }
+}
+
+$week-days: ("mon", "tue", "wed", "thu", "fri", "sat", "sun"); 
+$i: 1; 
+@each $days in $week-days {
+  .calendar-#{$days} > div:nth-child(1) {
+    grid-column-start: #{$i}; 
+  }
+  $i: $i + 1; 
+}
+
+    @for $day from 28 to 31 {
+        .calendar-#{$day} div:nth-child(#{$day}) ~ div {
+            display: none;
+        }
+    }
+
