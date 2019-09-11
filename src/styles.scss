@@ -20,22 +20,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+  }
 
   div:hover {
     cursor: pointer;
     background: pink;
     transform: translate(0, -20px);
-    }
+  }
 
   @for $day-num from 1 to 32 {
     div:nth-child(#{$day-num})::after {
     content: "#{$day-num}";
-    display: block;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
   }
 }
 }
